@@ -45,7 +45,21 @@ namespace PadawansTask8
                     }
                 }
             }
-            text = string.Join(" ", s);
+            int q = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i].Length != 0)
+                {
+                    q = text.IndexOf(s[i]) + s[i].Length;
+                    while (true)
+                    {
+                        q = text.IndexOf(s[i]) + s[i].Length;
+                        if (text.IndexOf(s[i], q) == -1)
+                            break;
+                        text = text.Remove(text.IndexOf(s[i], q), s[i].Length);
+                    }
+                }
+            }
         }
     }
 }
